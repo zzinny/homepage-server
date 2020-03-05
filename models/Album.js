@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const { sequelize } = require('../db/connection');
 const Singer = require('./Singer');
-const Song = require('./Song');
 
 class Album extends Model {}
 
