@@ -13,9 +13,6 @@ Singer.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  members: {
-    type: DataTypes.ARRAY,
-  },
 }, {
   sequelize,
   modelName: 'Singer'
