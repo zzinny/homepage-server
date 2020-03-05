@@ -18,4 +18,6 @@ Singer.init({
   modelName: 'Singer'
 });
 
-console.log(Singer === sequelize.models.Singer); // true
+Singer.sync({ alter: true })
+
+module.exports = Singer;
