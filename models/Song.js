@@ -19,6 +19,7 @@ Song.init({
   modelName: 'Song'
 });
 
+Album.hasMany(Song);
 Song.belongsTo(Album);
 
 Song.sync({ alter: true })
