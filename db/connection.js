@@ -2,13 +2,16 @@ const { Sequelize } = require('sequelize');
 const path = require('path');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: path.join(__dirname, '../.env.prod') })
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
-const dbname = process.env.DB_NAME;
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
-const host = process.env.DB_HOST;
-const port = process.env.DB_PORT;
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.json')[env];
+
+const dbname = config.database;
+const username = config.username;
+const password = config.password;
+const host = config.host;
+const port = config.port;
 
 const connectionUrl = `postgres://${username}:${password}@${host}:${port}/${dbname}`;
 const sequelize = new Sequelize(connectionUrl)
@@ -22,4 +25,4 @@ const testConnection = async function() {
     }
 }
 
-module.exports = testConnection;
+module.exports = { testConnection, sequelize };
