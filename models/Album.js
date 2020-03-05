@@ -20,7 +20,11 @@ Album.init({
   },
   publishedAt: {
     type: DataTypes.DATEONLY,
-  }
+  },
+  is_favorite: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
 }, {
   sequelize,
   modelName: 'Album'
